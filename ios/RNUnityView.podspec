@@ -1,26 +1,50 @@
 
 
-require "json"
 
-package = JSON.parse(File.read(File.join(__dir__, "..", "..","..", "package.json")))
-version = package['version']
+require 'json'
 
-source = { :git => 'https://github.com/marlon-wiprud/react-native-unity-view.git' }
+package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 Pod::Spec.new do |s|
-  s.name                   = "RNUnityView"
-  s.version                = version
-  s.summary                = "A general interface to interact with both incoming and outgoing app links."
-  s.homepage               = "https://github.com/marlon-wiprud/react-native-unity-view"
-  s.documentation_url      = "https://github.com/marlon-wiprud/react-native-unity-view"
-  s.license                = package["license"]
-  s.author                 = "Marlon Wiprud"
-  s.platforms              = { :ios => "9.0", :tvos => "9.2" }
-  s.source                 = source
-  s.source_files           = "*.{m}"
-  s.preserve_paths         = "package.json", "LICENSE", "LICENSE-docs"
-  s.header_dir             = "RNUnityView"
-  s.source_files  = "ios/**/*.{h,m}"
+  s.name         = 'RNUnityView'
+  s.version      = package['version']
+  s.summary      = package['description']
+  s.license      = package['license']
 
-#   s.dependency "React-Core/RCTLinkingHeaders", version
+  s.authors      = package['author']
+  s.homepage     = package['homepage']
+  s.platform     = :ios, '9.0'
+  s.ios.deployment_target = '9.0'
+  s.tvos.deployment_target = "9.0"
+
+  s.source       = { :git => '[https://github.com/marlon-wiprud/react-native-unity-view.git]', :branch => 'podspec' }
+  s.source_files  = 'ios/**/*.{h,m,mm}'
+
+  s.dependency 'React'
 end
+
+
+# require "json"
+
+# package = JSON.parse(File.read(File.join(__dir__, "..", "..","..", "package.json")))
+# version = package['version']
+
+# source = { :git => 'https://github.com/marlon-wiprud/react-native-unity-view.git' }
+
+# Pod::Spec.new do |s|
+#   s.name                   = "RNUnityView"
+#   s.version                = version
+#   s.summary                = "A general interface to interact with both incoming and outgoing app links."
+#   s.homepage               = "https://github.com/marlon-wiprud/react-native-unity-view"
+#   s.documentation_url      = "https://github.com/marlon-wiprud/react-native-unity-view"
+#   s.license                = package["license"]
+#   s.author                 = "Marlon Wiprud"
+#   s.platforms              = { :ios => "9.0", :tvos => "9.2" }
+#   s.source                 = source
+#   s.source_files           = "*.{m}"
+#   s.preserve_paths         = "package.json", "LICENSE", "LICENSE-docs"
+#   s.header_dir             = "RNUnityView"
+#   s.source_files  = "ios/**/*.{h,m}"
+
+# #   s.dependency "React-Core/RCTLinkingHeaders", version
+# end

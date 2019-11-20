@@ -3,6 +3,7 @@
   "version": "1.3.3",
   "description": "",
   "main": "out/index.js",
+  "homepage": "https://github.com/f111fei/react-native-unity-view/",
   "typings": "out/index.d.ts",
   "scripts": {
     "compile": "node node_modules/typescript/bin/tsc"
